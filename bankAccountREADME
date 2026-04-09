@@ -1,0 +1,12 @@
+[ CONTA DE BANCO ]
+3 Objetos
+
+Class { 
+  Saldo
+  Numero
+
+  depositar()
+  sacar()
+static transferir()
+}
+
