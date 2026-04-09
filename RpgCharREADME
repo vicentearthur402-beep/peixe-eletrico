@@ -1,0 +1,12 @@
+[PERSONAGEM]
+3 Objetos
+
+class {
+  nome
+  classe
+  vida
+__
+  recuperarVida()
+  tomarDano()
+  atacar()
+static batalhar()
