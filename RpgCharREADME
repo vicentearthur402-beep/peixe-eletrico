@@ -2,11 +2,15 @@
 3 Objetos
 
 class {
-  nome
-  classe
-  vida
-__
-  recuperarVida()
-  tomarDano()
-  atacar()
-static batalhar()
+  nome : string (pode ser name ou nome, tanto faz)
+  força: float (isso vai se chamar str, de strength)
+  agilidade: float (isso vai se chamar dex, de dexterity)
+___
+  HP: float (Health points, ou vida. Tem que ser inteiro sempre, será afetado pelo atacar)
+  MP: float (É mana, vai ser usado pra algumas habilidades, será sempre inteiro)
+___
+  Atacar() (Função de atacar, vai ser usada no static batalha, diminuirá HP de outros objetos)
+  tomarDano() (Função para tirar HP do objeto que receber o dano. Não é totalmente obrigatório, se for possível fazer de outro jeito, ótimo)
+  RecuperarVida() (Função que recupera HP do objeto que a utiliza, tem que ter duas utilizações, recupera 1/4 da vida total do objeto)
+___
+static batalhar() (A função de batalha será uma extensão das funções anteriores, unificando-as)
