@@ -3,9 +3,9 @@
 | Funcionário  | Função |
 | ------------- | ------------- |
 | Enzo Zinelli  | Scrum Master  |
-| Lucas Hingst  | Programador / RPGChar  |
-| Daniel Santiago | Programador / RPGChar |
-| Vitor Elian | Programador / Conta Bancária  |
-| Moises Dias  | Programador / Conta Bancária  |
-| Cauan Fabiani | Programador / RPGChar  |
-| Arthur Vicente | Programador / Conta Bancária |
+| Lucas Hingst  | Programador |
+| Daniel Santiago | Programador |
+| Vitor Elian | Programador |
+| Moises Dias  | Programador |
+| Cauan Fabiani | Programador |
+| Arthur Vicente | Programador |
