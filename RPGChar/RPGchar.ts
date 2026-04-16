@@ -13,7 +13,8 @@ class RpgChar {
     private _destreza!: number;
     private _constituicao!: number;
     private _health!: number;
-    private _magicPower: number = 1;
+    private _magicPower!: number;
+
 
     constructor(definicoes: {
         nome: string,
@@ -61,6 +62,43 @@ class RpgChar {
         this._magicPower = Math.floor(value / 5);
     }
 
+    static async mostrarInterface() {
+        console.log("Personagens disponíveis:");
+
+        personagens.forEach((p, i) => {
+            console.log(`${i} - ${p.nome}`);
+        });
+
+        const escolhaJogador = await rl.question("Escolha qual personagem voce quer usar: ");
+        const jogador = personagens[+escolhaJogador];
+
+        if (!jogador) {
+            console.log("Personagem inválido.");
+            return;
+        }
+
+        const inimigos = personagens.filter((_, i) => i !== +escolhaJogador);
+
+        console.log("\nEscolha o inimigo:");
+        inimigos.forEach((p, i) => {
+            console.log(`${i} - ${p.nome}`);
+        });
+
+        const escolhaInimigo = await rl.question("Escolha contra quem voce quer lutar: ");
+        const inimigo = inimigos[+escolhaInimigo];
+
+        if (!inimigo) {
+            console.log("Inimigo inválido.");
+            return;
+        }
+
+        console.log(`\nJogador escolheu: ${jogador.nome}`);
+        console.log(`Inimigo escolhido: ${inimigo.nome}\n`);
+
+        RpgChar.batalhar(jogador, inimigo);
+        process.exit(0);
+    }
+
     atacar(alvo: RpgChar) {
         let dano = this._forca;
 
@@ -68,9 +106,8 @@ class RpgChar {
             dano = this._destreza;
         }
 
-        alvo.sofrerDano(dano);
-
         console.log(`${this._nome} causou ${dano} de dano em ${alvo.nome}`);
+        alvo.sofrerDano(dano);
     }
 
     sofrerDano(dano: number) {
@@ -137,26 +174,12 @@ const personagem3 = new RpgChar({
 });
 
 const personagem4 = new RpgChar({
-    nome : "Mago das trevas",
-    forca : 4,
-    destreza : 7,
-    constituicao : 6,
+    nome: "Mago das trevas",
+    forca: 4,
+    destreza: 7,
+    constituicao: 6,
 });
 
 const personagens = [personagem1, personagem2, personagem3, personagem4];
 
-console.log("Personagens disponíveis:");
-personagens.forEach((p, i) => {
-    console.log(`${i} - ${p.nome}`);
-});
-const escolhaJogador = await rl.question("Escolha qual personagem voce quer usar: ")
-const escolhaInimigo = await rl.question("Escolha contra quem voce quer lutar: ")
-const jogador = personagens[escolhaJogador];
-const inimigo = personagens[escolhaInimigo];
-
-
-console.log(`\nJogador escolheu: ${jogador.nome}`);
-console.log(`Inimigo escolhido: ${inimigo.nome}\n`);
-
-console.log(RpgChar.batalhar(jogador, inimigo));
-process.exit(0);
+RpgChar.mostrarInterface();
