@@ -34,10 +34,6 @@ class RpgChar {
         return this._nome;
     }
 
-    set nome(nome: string) {
-        this._nome = nome;
-    }
-
     get destreza() {
         return this._destreza;
     }
