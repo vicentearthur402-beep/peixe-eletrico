@@ -9,10 +9,3 @@
 | Moises Dias  | Programador / Conta Bancária  |
 | Cauan Fabiani | Programador / RPGChar  |
 | Arthur Vicente | Programador / Conta Bancária |
-
-
-
-Sprint:
-
-bankAccount: 1 hora e 15 minutos.
-RpgChar: 2 horas e 15 minutos.
